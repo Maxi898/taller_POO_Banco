@@ -8,7 +8,7 @@ package Modelo;
  *
  * @author Daniel Alejandro
  */
-public class Cuenta {
+public abstract class Cuenta {
     private String numero;
     private String nombreDueño;
     private Fecha fechaApertura;
@@ -65,13 +65,9 @@ public class Cuenta {
         return false;
     }
     
-    public boolean retirar (double valor){
-        if (valor >0 && valor <=this.saldo){
-            this.saldo -= valor;
-            return true;
-        }
-        return false;
-    }
+    public abstract boolean retirar (double valor);
+      
+    
     
     public String obtenerDatos(){
         return "Cuenta #:" + numero + "| Dueño: " + nombreDueño + "| Apertura: " + fechaApertura.toString() + "| Saldo: " + saldo;
